@@ -1,0 +1,42 @@
+<script type="text/javascript">
+var globalCounter=1;
+$(document).ready(function() {
+  //$("#btn").click(function(event){
+    again(globalCounter);
+    function again(globalCounter){
+      if (globalCounter<101)
+      {
+    $.ajax({
+                 url: "welcome/callajax", // Route to the Script Controller method
+                type: "GET",
+            dataType: "json",
+                data: { id: globalCounter }, // This goes to Controller in params hash, i.e. params[:file_name]
+            complete: function() {},
+             success: function(data, textStatus, xhr) {
+                        // Do something with the response here
+                      //  editor.setValue(data.file_content)
+                       // Show the file contents in our editor.
+                       var $li=$("<li>",{id: globalCounter,class: "qwe"});
+                       $li.fadeIn().text(JSON.stringify(data)).appendTo(".data");
+                        //alert(globalCounter);
+                        if(globalCounter> 20)
+                        {var temp=globalCounter-20
+                          $('#'+temp).fadeOut();}
+                        //  $("<li>").text(JSON.stringify(data)).appendTo('.data');}
+                        globalCounter+=1;
+                                                        // editor is defined somewhere above
+                        setTimeout(function(){again(globalCounter);},500);                                  // 'file_content' is the key we use to respond
+                                                           // in the controller function below
+                      },
+               error: function() {
+                        alert("Ajax error!")
+                      }
+    });
+  }
+  };
+//});
+});
+</script>
+<h1>Welcome to the index</h1>
+
+<ul class="data"></ul>
