@@ -8,5 +8,5 @@
         
    3)   If you were to use these technologies professionally, what would be your biggest concern?
    
-        I think i would prefer to use Jquery as it is more reliable and popular as well as easy to implement. My only concern was      compatibility on different platform.
+        I think i would prefer to use Jquery as it is more reliable and popular as well as easy to implement. My only concern was      compatibility on different platforms.
         
