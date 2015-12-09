@@ -10,11 +10,11 @@ $(document).ready(function() {
                  url: "welcome/callajax", // Route to the Script Controller method
                 type: "GET",
             dataType: "json",
-                data: { id: globalCounter }, // This goes to Controller in params hash, i.e. params[:file_name]
+                data: { id: globalCounter }, // This goes to Controller in params hash,
             complete: function() {},
              success: function(data, textStatus, xhr) {
                         // Do something with the response here
-                      //  editor.setValue(data.file_content)
+                    
                        // Show the file contents in our editor.
                        var $li=$("<li>",{id: globalCounter,class: "qwe"});
                        $li.fadeIn().text(JSON.stringify(data)).appendTo(".data");
@@ -24,9 +24,9 @@ $(document).ready(function() {
                           $('#'+temp).fadeOut();}
                         //  $("<li>").text(JSON.stringify(data)).appendTo('.data');}
                         globalCounter+=1;
-                                                        // editor is defined somewhere above
-                        setTimeout(function(){again(globalCounter);},500);                                  // 'file_content' is the key we use to respond
-                                                           // in the controller function below
+                                                        
+                        setTimeout(function(){again(globalCounter);},500);                                  
+                                                           
                       },
                error: function() {
                         alert("Ajax error!")
